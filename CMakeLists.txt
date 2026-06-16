@@ -1,24 +1,51 @@
-cmake_minimum_required(VERSION 3.15)
+cmake_minimum_required(VERSION 3.20)
 
-project(aestool LANGUAGES CXX)
+project(AESTool LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
+
+find_path(CRYPTOPP_INCLUDE_DIR
+    NAMES cryptopp/aes.h
+    PATHS /mingw64/include
+)
+
+find_library(CRYPTOPP_LIBRARY
+    NAMES cryptopp
+    PATHS /mingw64/lib
+)
+
+if (NOT CRYPTOPP_INCLUDE_DIR)
+    message(FATAL_ERROR "Crypto++ headers not found. Install mingw-w64-x86_64-crypto++")
+endif()
+
+if (NOT CRYPTOPP_LIBRARY)
+    message(FATAL_ERROR "Crypto++ library not found. Install mingw-w64-x86_64-crypto++")
+endif()
+
+message(STATUS "Crypto++ include dir: ${CRYPTOPP_INCLUDE_DIR}")
+message(STATUS "Crypto++ library    : ${CRYPTOPP_LIBRARY}")
 
 add_executable(aestool
     src/main.cpp
 )
 
 target_include_directories(aestool PRIVATE
-    C:/msys64/mingw64/include
-)
-
-target_link_directories(aestool PRIVATE
-    C:/msys64/mingw64/lib
+    ${CRYPTOPP_INCLUDE_DIR}
 )
 
 target_link_libraries(aestool PRIVATE
-    cryptopp
-    ws2_32
+    ${CRYPTOPP_LIBRARY}
+)
+
+add_executable(aesbench
+    src/benchmark.cpp
+)
+
+target_include_directories(aesbench PRIVATE
+    ${CRYPTOPP_INCLUDE_DIR}
+)
+
+target_link_libraries(aesbench PRIVATE
+    ${CRYPTOPP_LIBRARY}
 )
