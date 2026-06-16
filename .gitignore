@@ -1,0 +1,23 @@
+build/
+*.exe
+*.o
+*.obj
+*.dll
+*.a
+*.lib
+*.pdb
+*.log
+*.tmp
+
+# Output/test files
+*.bin
+*.ct
+*.out
+*.enc
+*.dec
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
