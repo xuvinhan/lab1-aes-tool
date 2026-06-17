@@ -1,0 +1,35 @@
+OS information:
+Distributor ID:	Ubuntu
+Description:	Ubuntu 24.04.4 LTS
+Release:	24.04
+Codename:	noble
+
+Kernel:
+Linux vinh-ASUS-EXPERTBOOK-B1402CVA-B1402CVA 6.17.0-35-generic #35~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue May 26 19:30:42 UTC 2 x86_64 x86_64 x86_64 GNU/Linux
+
+CPU:
+CPU(s):                                  12
+On-line CPU(s) list:                     0-11
+Model name:                              13th Gen Intel(R) Core(TM) i5-1335U
+Thread(s) per core:                      2
+Core(s) per socket:                      10
+Socket(s):                               1
+CPU(s) scaling MHz:                      21%
+CPU max MHz:                             4600.0000
+CPU min MHz:                             400.0000
+NUMA node0 CPU(s):                       0-11
+
+Compiler:
+g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+
+CMake:
+cmake version 3.28.3
+
+Git:
+git version 2.43.0
+
+Crypto++ package:
+ii  libcrypto++-dev:amd64                         8.9.0-1.1build1                                  amd64        General purpose cryptographic library - C++ development
+ii  libcrypto++-doc                               8.9.0-1.1build1                                  all          General purpose cryptographic library - documentation
+ii  libcrypto++-utils                             8.9.0-1.1build1                                  amd64        General purpose cryptographic library - utilities and data files
+ii  libcrypto++8t64:amd64                         8.9.0-1.1build1                                  amd64        General purpose cryptographic library - shared library
